@@ -1,0 +1,15 @@
+[
+
+  {
+    "title": "kupit moloko",
+    "checked": false
+  },
+  {
+    "title": "pozvonit",
+    "checked": true
+  },
+  {
+    "title": "sdelat",
+    "checked": false
+  }
+]
