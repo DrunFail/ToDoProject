@@ -1,15 +1,18 @@
 [
 
   {
+    "id": 1,
     "title": "kupit moloko",
-    "checked": false
+    "complete": false
   },
   {
+    "id": 2,
     "title": "pozvonit",
-    "checked": true
+    "complete": true
   },
   {
+    "id": 3,
     "title": "sdelat",
-    "checked": false
+    "complete": false
   }
 ]
