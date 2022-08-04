@@ -1,0 +1,29 @@
+@import '../../../sass/_colors.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+    .title {
+        border: 1px solid $pink;
+        padding: 0 10px;
+        border-radius: 8px;
+        margin-right: 10px;
+        height: 100%;
+    }
+
+    .add {
+        border-radius: 8px;
+        min-width: 50px;
+        background-color: $lgreen;
+        border: none;
+    }
+
+    .add:hover {
+        background-color: $green;
+        cursor: pointer;
+    }
+}
