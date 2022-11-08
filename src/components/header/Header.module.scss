@@ -1,4 +1,4 @@
-@import  '../../sass/_colors.scss';
+@import '../../sass/_colors.scss';
 
 .header {
     display: flex;
@@ -13,10 +13,13 @@
         font-weight: 700;
         color: $pink;
     }
-    .link {
-        padding-left: 30px;
-        text-decoration: none;
-        font-size: 20px;
-        font-weight: 600;
+
+    .navbar {
+        & a {
+            padding-left: 30px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
     }
 }

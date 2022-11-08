@@ -6,9 +6,8 @@ export default function Header() {
         <header className={styles.header } >
             <a className={styles.logo} href='' >ToDoApp</a>
             <nav className={styles.navbar }>
-                <a className={styles.link} href=''>about</a>
-                <a className={styles.link} href=''>contacts</a>
-                
+                <a  href=''>about</a>
+                <a  href=''>contacts</a>
             </nav>
         </header>
     );

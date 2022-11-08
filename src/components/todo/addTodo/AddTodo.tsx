@@ -2,13 +2,19 @@ import React from "react";
 import { useState } from "react";
 import styles from './AddTodo.module.scss';
 
-export default function AddTodo({ todos, setTodos }) {
+
+interface AddTodoProps {
+    todos: Todo[],
+    setTodos: any
+}
+
+export default function AddTodo({ todos, setTodos }: AddTodoProps) {
     const [title, setTitle] = useState('')
 
     const addTodo = () => {
         
         const newTodo = {
-            id: todos.at(-1).id + 1,
+            id: todos[todos.length -1].id + 1 || 1,
             title,
             complete: false
         }
@@ -25,7 +31,7 @@ export default function AddTodo({ todos, setTodos }) {
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder='новая задача...'
             />
-            <button className={styles.add} onClick={() => addTodo() }>add</button>
+            <button className={styles.add} onClick={addTodo}>add</button>
         </div>
     );
 }

@@ -1,41 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
-import Header from './header/';
-import AddTodo from './todo/addTodo/AddToDo';
-import TodoItem from './todo/todoitem/TodoItem';
+import Header from './header/Header';
+import AddTodo from './todo/addTodo/AddTodo';
+import TodoItem from './todo/todoItem/TodoItem';
 
-function ToDo( ) {
-    const [todos, setTodos] = useState([]);
+export default function ToDo( ) {
+    const [todos, setTodos] = useState<Todo[]>([]);
 
     useEffect(() => {
         setTodos(data);
     }, [])
     
-    const toggleComplete = (id) => {
-        const update = todos.map(todo => todo.id == id
+    const toggleComplete = (id: number) => {
+        const updatedTodos = todos.map(todo => todo.id == id
             ? { ...todo, complete: !todo.complete }
             : todo)
-        console.log(update)
-        setTodos(update)
+        setTodos(updatedTodos)
     }
 
-    const deleteTodo = (id) => {
-        const delTodo = todos.filter(todo => todo.id !== id)
-        setTodos(delTodo)
+    const deleteTodo = (id: number) => {
+        const updatedTodos = todos.filter(todo => todo.id !== id)
+        setTodos(updatedTodos)
     }
 
     
     return (
         <div >
             <Header />
-            <AddTodo todos={todos} setTodos={setTodos }/>
+            <AddTodo
+                todos={todos}
+                setTodos={setTodos}
+            />
             {todos.map(el => <TodoItem
                 toggleComplete={toggleComplete}
                 todos={todos}
                 setTodos={setTodos }
                 deleteTodo={deleteTodo }
-                todos={todos}
-                setTodos={setTodos}
                 key={el.id}
                 id={el.id }
                 el={el} />)}
@@ -44,4 +44,4 @@ function ToDo( ) {
             );
 }
 
- export default ToDo;
+
