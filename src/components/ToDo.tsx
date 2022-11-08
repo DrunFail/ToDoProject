@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import data from '../data/data.json';
-import TodoItem from './todo/todoitem';
-import AddTodo from './todo/addTodo/';
 import Header from './header/';
+import AddTodo from './todo/addTodo/AddToDo';
+import TodoItem from './todo/todoitem/TodoItem';
 
 function ToDo( ) {
     const [todos, setTodos] = useState([]);

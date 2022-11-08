@@ -1,5 +1,6 @@
+import React from "react";
 import { useState } from "react";
-import styles from './AddToDo.module.scss';
+import styles from './AddTodo.module.scss';
 
 export default function AddTodo({ todos, setTodos }) {
     const [title, setTitle] = useState('')

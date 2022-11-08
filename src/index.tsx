@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import ToDo from './components/ToDo';
 import  './sass/main.scss';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <ToDo />
