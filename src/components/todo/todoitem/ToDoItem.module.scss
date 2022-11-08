@@ -1,0 +1,97 @@
+@import '../../../sass/_colors.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+    height: 60px;
+
+    input[type=radio]:checked + p {
+       
+        text-decoration: line-through;
+        opacity: 0.5;
+    }
+
+
+
+    .edittitle {
+        position: absolute;
+        left: 195px;
+        border-radius: 8px;
+        width: 190px;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .noopen {
+        display: none;
+    }
+
+    .open {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .update {
+            border-radius: 8px;
+            margin: 0 10px;
+            background-color: $lgreen;
+            border: none;
+            width: 100px;
+            height: 40px;
+            margin-left: 60px;
+        }
+    }
+}
+
+.show {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+
+    .complete {
+        transform: scale(1.5);
+        margin-right: 10px;
+        background-color: $pink;
+    }
+
+    .title {
+        padding: 0 5px;
+        width: 200px;
+        background-color: $pink;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .delete {
+        border-radius: 8px;
+        margin: 0 10px;
+        background-color: $lgreen;
+        border: none;
+        width: 100px;
+    }
+
+    .delete:hover {
+        background-color: $green;
+        cursor: pointer;
+    }
+
+    .edit {
+        border-radius: 8px;
+        background-color: $lgreen;
+        border: none;
+        width: 100px;
+    }
+
+    .edit:hover {
+        background-color: $green;
+        cursor: pointer;
+    }
+}
+
+.noshow {
+    position: relative;
+    left: -1000px;
+}
