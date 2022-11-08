@@ -8,9 +8,7 @@
     <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\pages\" />
+    <Folder Include="src\components\todo\todoList\" />
     <Folder Include="src\sass\" />
-    <Folder Include="src\ui\button\" />
-    <Folder Include="src\ui\input\" />
   </ItemGroup>
 </Project>

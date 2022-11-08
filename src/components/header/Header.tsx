@@ -3,12 +3,12 @@ import styles from './Header.module.scss';
 
 export default function Header() {
     return (
-        <header className={styles.header } >
-            <a className={styles.logo} href='' >ToDoApp</a>
-            <nav className={styles.navbar }>
-                <a  href=''>about</a>
-                <a  href=''>contacts</a>
-            </nav>
+        <header className={styles.header} >
+            <a
+                className={styles.logo}
+                href='/' >
+                ToDoApp
+            </a>
         </header>
     );
 }

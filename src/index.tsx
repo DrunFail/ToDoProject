@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ToDo from './components/ToDo';
+import App from './components/todo/App';
 import  './sass/main.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <ToDo />
+    <React.StrictMode>
+    <App />
   </React.StrictMode>
 );
 

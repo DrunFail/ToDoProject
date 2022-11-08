@@ -4,23 +4,25 @@ import styles from './TodoItem.module.scss';
 
 
 interface TodoItemProps {
-    el: Todo,
+    todo: Todo,
     id: number,
-    toggleComplete: Function,
+    toggleComplete: (id: number) => void,
     todos: Todo[],
-    deleteTodo: Function,
+    deleteTodo: (id: number) => void,
     setTodos: any
 }
 
 
-export default function TodoItem({ el,
+export default function TodoItem({
+    todo,
     id,
     toggleComplete,
     todos,
     setTodos,
     deleteTodo,
 }: TodoItemProps) {
-    const [edit, setEdit] = useState('');
+
+    const [newTitle, setNewTitle] = useState('');
     const [editOpen, setEditOpen] = useState(false);
 
     const editTodo = (id: number) => {
@@ -30,16 +32,16 @@ export default function TodoItem({ el,
         if (typeof editTask === 'undefined') {
             throw new Error('invalid type')
         }
-        setEdit(editTask.title)
+        setNewTitle(editTask.title)
     }
 
 
     const updateTodo = (id: number) => {
         const update = todos.map(todo => todo.id === id ?
-            { ...todo, title: edit }
+            { ...todo, title: newTitle }
             : todo)
         setTodos(update)
-        setEdit('')
+        setNewTitle('')
         setEditOpen(false)
     }
 
@@ -48,16 +50,41 @@ export default function TodoItem({ el,
     return (
         <div className={styles.container}>
             <div className={styles[editOpen ? 'noshow' : 'show']}>
-                <input className={styles.complete} type='radio' checked={el.complete} onClick={() => toggleComplete(id)} />
-                <p className={styles.title}>{el.title}</p>
-                <button className={styles.delete} onClick={() => deleteTodo(id)}>delete</button>
-                <button className={styles.edit} onClick={() => editTodo(id)}>edit</button>
+                <input
+                    className={styles.complete}
+                    type='radio'
+                    checked={todo.complete}
+                    onChange={() => toggleComplete(id)}
+                />
+
+                <p className={styles.title}>{todo.title}</p>
+
+                <button
+                    className={styles.delete}
+                    onClick={() => deleteTodo(id)}>
+                    Удалить
+                </button>
+
+                <button
+                    className={styles.edit}
+                    onClick={() => editTodo(id)}>
+                    Изменить
+                </button>
             </div>
 
 
             <div className={styles[editOpen ? "open" : 'noopen']}>
-                <input className={styles.edittitle} value={edit} onChange={(e) => setEdit(e.target.value)} />
-                <button className={styles.update} onClick={() => updateTodo(id)}>update</button>
+
+                <input
+                    className={styles.edittitle}
+                    value={newTitle}
+                    onChange={(e) => setNewTitle(e.target.value)} />
+
+                <button
+                    className={styles.update}
+                    onClick={() => updateTodo(id)}>
+                    Применить
+                </button>
             </div>
         </div>
     );

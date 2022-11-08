@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import AddTodoButton from "../../customButton/AddTodoButton";
 import styles from './AddTodo.module.scss';
 
 
@@ -12,9 +13,9 @@ export default function AddTodo({ todos, setTodos }: AddTodoProps) {
     const [title, setTitle] = useState('')
 
     const addTodo = () => {
-        
+
         const newTodo = {
-            id: todos[todos.length -1].id + 1 || 1,
+            id: todos[todos.length - 1]?.id + 1 || 1,
             title,
             complete: false
         }
@@ -23,15 +24,21 @@ export default function AddTodo({ todos, setTodos }: AddTodoProps) {
     }
 
     return (
-        <div className={styles.container }>
-            <input className={styles.title}
-                type='text'
-                autoComplete='off'
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder='новая задача...'
-            />
-            <button className={styles.add} onClick={addTodo}>add</button>
-        </div>
+        <form
+            className={styles.addTodoForm}
+            onSubmit={(e) => e.preventDefault()}>
+
+                <input 
+                    type='text'
+                    autoComplete='off'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder='новая задача...'
+                />
+            <AddTodoButton
+                text='Добавить'
+                type='submit'
+                onClick={addTodo} />
+            </form>
     );
 }

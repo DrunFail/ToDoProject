@@ -1,0 +1,10 @@
+@import '../../sass/_variables.scss';
+
+.custom{
+    background-color: $primaryButtonColor;
+    color: $primaryButtonTextColor;
+    &:hover{
+        background-color: $hoverButtonColor;
+        color: $hoverButtonTextColor;
+    }
+}

@@ -1,9 +1,10 @@
 @import '_reset.scss';
-@import 'colors.scss';
+@import '_colors.scss';
 
 body {
-   max-width: 800px;
-   margin: 0 auto;
-   height: 100vh;
-   box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100vh;
+    box-sizing: border-box;
+    background-image: url(https://phonoteka.org/uploads/posts/2022-02/1645065748_1-phonoteka-org-p-kartinki-abstraktnie-foni-1.jpg);
 }
