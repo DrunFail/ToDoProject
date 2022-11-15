@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import data from '../../data/data.json';
 import Header from '../header/Header';
 import AddTodo from './addTodo/AddTodo';
-import TodoItem from './todoItem/TodoItem';
 import styles from './app.module.scss';
 import TodoList from './todoList/TodoList';
 
@@ -12,6 +11,18 @@ export default function App() {
     useEffect(() => {
         setTodos(data);
     }, [])
+
+    const addTodo = (title: string):void => {
+
+        const newTodo = {
+            id: todos[todos.length - 1]?.id + 1 || 1,
+            title,
+            complete: false
+        }
+        setTodos([...todos, newTodo]);
+    }
+
+
 
     const toggleComplete = (id: number): void => {
         const updatedTodos = todos.map(todo => todo.id === id
@@ -25,19 +36,27 @@ export default function App() {
         setTodos(updatedTodos)
     }
 
+    const updateTodo = (id: number, newTitle:string): void => {
+        const update = todos.map(todo => todo.id === id ?
+            { ...todo, title: newTitle }
+            : todo)
+        setTodos(update)
+    }
+
+
+
 
     return (
         <div className={styles.app}>
             <Header />
             <AddTodo
-                todos={todos}
-                setTodos={setTodos}
+                addTodo={addTodo }
             />
             <TodoList
                 todos={todos}
                 deleteTodo={deleteTodo}
                 toggleComplete={toggleComplete}
-                setTodos={setTodos}
+                updateTodo={updateTodo}
             />
         </div>
     );

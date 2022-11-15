@@ -7,10 +7,10 @@ interface TodoListProps {
     todos: Todo[],
     deleteTodo: (id: number) => void,
     toggleComplete: (id: number) => void,
-    setTodos: any
+    updateTodo: (id: number, newTitle: string) => void,
 }
 
-export default function TodoList({ todos, deleteTodo, toggleComplete, setTodos }: TodoListProps) {
+export default function TodoList({ todos, deleteTodo, toggleComplete, updateTodo}: TodoListProps) {
     return (
         <div className={styles.container }>
             <h1>Список назначенных дел</h1>
@@ -21,11 +21,12 @@ export default function TodoList({ todos, deleteTodo, toggleComplete, setTodos }
                 <TodoItem
                     toggleComplete={toggleComplete}
                     todos={todos}
-                    setTodos={setTodos}
                     deleteTodo={deleteTodo}
                     key={todo.id}
                     id={todo.id}
-                    todo={todo} />
+                    todo={todo}
+                    updateTodo={updateTodo}
+                />
             )}
         </div>
     );

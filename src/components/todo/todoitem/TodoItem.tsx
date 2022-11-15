@@ -9,42 +9,31 @@ interface TodoItemProps {
     toggleComplete: (id: number) => void,
     todos: Todo[],
     deleteTodo: (id: number) => void,
-    setTodos: any
+    updateTodo: (id: number, newTitle: string) => void,
 }
 
 
-export default function TodoItem({
-    todo,
-    id,
-    toggleComplete,
-    todos,
-    setTodos,
-    deleteTodo,
-}: TodoItemProps) {
+export default function TodoItem({  todo,
+                                    id,
+                                    toggleComplete,
+                                    todos,
+                                    deleteTodo,
+                                    updateTodo,
+                                }: TodoItemProps) {
 
     const [newTitle, setNewTitle] = useState('');
     const [editOpen, setEditOpen] = useState(false);
 
-    const editTodo = (id: number) => {
-        setEditOpen(!editOpen)
+    const editTodo = (id: number): void => {
+
         const editTask = todos.find(todo => todo.id === id)
 
         if (typeof editTask === 'undefined') {
             throw new Error('invalid type')
         }
         setNewTitle(editTask.title)
+        setEditOpen(!editOpen)
     }
-
-
-    const updateTodo = (id: number) => {
-        const update = todos.map(todo => todo.id === id ?
-            { ...todo, title: newTitle }
-            : todo)
-        setTodos(update)
-        setNewTitle('')
-        setEditOpen(false)
-    }
-
 
 
     return (
@@ -82,7 +71,11 @@ export default function TodoItem({
 
                 <button
                     className={styles.update}
-                    onClick={() => updateTodo(id)}>
+                    onClick={() => {
+                        updateTodo(id, newTitle);
+                        setNewTitle('')
+                        setEditOpen(false)
+                    }}>
                     Применить
                 </button>
             </div>
