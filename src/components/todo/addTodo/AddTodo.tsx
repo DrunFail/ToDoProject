@@ -18,14 +18,15 @@ export default function AddTodo({ addTodo }: AddTodoProps) {
             className={styles.addTodoForm}
             onSubmit={(e) => e.preventDefault()}>
 
-            <input
-                type='text'
-                autoComplete='off'
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder='новая задача...'
-                required
-            />
+                <input
+                    type='text'
+                    autoComplete='off'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder='новая задача...'
+                    required
+                />
+           
             <AddTodoButton
                 text='Добавить'
                 type='submit'

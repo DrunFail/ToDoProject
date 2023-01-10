@@ -13,13 +13,14 @@ export default function App() {
     }, [])
 
     const addTodo = (title: string):void => {
-
-        const newTodo = {
-            id: todos[todos.length - 1]?.id + 1 || 1,
-            title,
-            complete: false
+        if (title) {
+            const newTodo = {
+                id: todos[todos.length - 1]?.id + 1 || 1,
+                title,
+                complete: false
+            }
+            setTodos([...todos, newTodo]);
         }
-        setTodos([...todos, newTodo]);
     }
 
 
